@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animasi Memantul</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      var x = canvas.width / 2;
+      var y = canvas.height - 30;
+      var dx = 2;
+      var dy = -2;
+      var boxSize = 20; // Ukuran kotak
+
+      function drawBox() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Hapus frame sebelumnya
+        ctx.beginPath();
+        ctx.rect(x, y, boxSize, boxSize); // Gambarkan kotak
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      function updatePosition() {
+        x += dx;
+        y += dy;
+
+        // Efek memantul ketika mencapai batas canvas
+        if (x + boxSize > canvas.width || x < 0) {
+          dx = -dx;
+        }
+        if (y + boxSize > canvas.height || y < 0) {
+          dy = -dy;
+        }
+      }
+
+      function draw() {
+        drawBox();
+        updatePosition();
+        requestAnimationFrame(draw); // Panggil fungsi draw() untuk frame selanjutnya
+      }
+
+      draw(); // Mulai animasi
+    </script>
+  </body>
+</html>

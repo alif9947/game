@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Memantul</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      canvas {
+        border: 2px solid black;
+        display: block;
+        margin: 0 auto;
+        background-color: #f1f1f1;
+      }
+      .game-over {
+        font-size: 24px;
+        color: red;
+      }
+      .controls {
+        margin-top: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 5px;
+        cursor: pointer;
+        border: none;
+        background-color: #4caf50;
+        color: white;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      button:active {
+        background-color: #3e8e41;
+      }
+      .input-name {
+        margin-top: 20px;
+      }
+      .score {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Form input untuk nama pemain -->
+    <div class="input-name">
+      <label for="playerName">Masukkan Nama Anda: </label>
+      <input type="text" id="playerName" placeholder="Nama Pemain" />
+      <button id="startButton">Start</button>
+    </div>
+
+    <div
+      style="display: flex; justify-content: center; align-items: flex-start"
+    >
+      <!-- Area canvas untuk permainan -->
+      <div>
+        <canvas
+          id="myCanvas"
+          width="500"
+          height="400"
+          style="display: none"
+        ></canvas>
+        <div class="game-over" id="gameOverMessage" style="display: none">
+          Game Over! Anda Kalah!
+        </div>
+        <div class="score" id="score">Skor: 0</div>
+        <div class="controls">
+          <button id="retryButton" style="display: none">Coba Lagi</button>
+        </div>
+      </div>
+
+      <!-- Papan Skor -->
+      <div style="margin-left: 20px; text-align: left">
+        <h2>Papan Skor</h2>
+        <ul
+          id="scoreBoard"
+          style="
+            list-style-type: none;
+            padding: 0;
+            font-size: 18px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid black;
+            padding: 10px;
+            background-color: #f9f9f9;
+          "
+        >
+          <!-- Skor akan ditambahkan di sini -->
+        </ul>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
